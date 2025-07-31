@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+chemx_client/__init__.py
+chemx_client/client.py
+chemx_client.egg-info/PKG-INFO
+chemx_client.egg-info/SOURCES.txt
+chemx_client.egg-info/dependency_links.txt
+chemx_client.egg-info/requires.txt
+chemx_client.egg-info/top_level.txt
