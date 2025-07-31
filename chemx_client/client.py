@@ -11,10 +11,11 @@ class ChemXAPIError(Exception):
 
 class ChemXClient:
 
+
     def __init__(self, base_url: str = "https://chemx-backend.onrender.com"):
         """
-        base_url (str): Адрес запущенного сервера ChemX-backend.
-        По умолчанию смотрит на публичный сервер на Render.
+            base_url (str): Адрес запущенного сервера ChemX-backend.
+            По умолчанию смотрит на публичный сервер на Render.
         """
         self.base_url = f"{base_url.rstrip('/')}/api/v1"
         self.session = requests.Session()
@@ -26,7 +27,10 @@ class ChemXClient:
         # Параметры по умолчанию для запроса
         request_params = {"file_format": "json"}
         if params:
-            request_params.update(params)
+            # Добавляем только те параметры, которые не пустые
+            for key, value in params.items():
+                if value is not None:
+                    request_params[key] = value
 
         try:
             response = self.session.get(full_url, params=request_params)
@@ -44,9 +48,12 @@ class ChemXClient:
 
     # --- Cytotox ---
 
-    def get_cytotox_data(self) -> pd.DataFrame:
-        """Получает все данные из домена Cytotox."""
-        return self._get_and_parse("cytotox/data/all")
+    def get_cytotox_data(self, nanoparticle: Optional[str] = None) -> pd.DataFrame:
+        """
+        Получает все данные из домена Cytotox
+        nanoparticle (str, optional): Фильтр по названию наночастицы.
+        """
+        return self._get_and_parse("cytotox/data/all", params={"nanoparticle": nanoparticle})
 
     def get_cytotox_column_stats(self) -> pd.DataFrame:
         """Получает статистику по колонкам для домена Cytotox."""
@@ -62,9 +69,12 @@ class ChemXClient:
 
     # --- Nanomag ---
 
-    def get_nanomag_data(self) -> pd.DataFrame:
-        """Получает все данные из домена Nanomag."""
-        return self._get_and_parse("nanomag/data/all")
+    def get_nanomag_data(self, nanoparticle: Optional[str] = None) -> pd.DataFrame:
+        """
+        Получает все данные из домена Nanomag
+        nanoparticle (str, optional): Фильтр по названию наночастицы
+        """
+        return self._get_and_parse("nanomag/data/all", params={"nanoparticle": nanoparticle})
 
     def get_nanomag_column_stats(self) -> pd.DataFrame:
         """Получает статистику по колонкам для домена Nanomag."""
@@ -80,9 +90,12 @@ class ChemXClient:
 
     # --- Nanozymes ---
 
-    def get_nanozymes_data(self) -> pd.DataFrame:
-        """Получает все данные из домена Nanozymes."""
-        return self._get_and_parse("nanozymes/data/all")
+    def get_nanozymes_data(self, nanoparticle: Optional[str] = None) -> pd.DataFrame:
+        """
+        Получает все данные из домена Nanozymes
+        nanoparticle (str, optional): Фильтр по названию наночастицы
+        """
+        return self._get_and_parse("nanozymes/data/all", params={"nanoparticle": nanoparticle})
 
     def get_nanozymes_column_stats(self) -> pd.DataFrame:
         """Получает статистику по колонкам для домена Nanozymes."""
@@ -98,9 +111,12 @@ class ChemXClient:
 
     # --- Seltox ---
 
-    def get_seltox_data(self) -> pd.DataFrame:
-        """Получает все данные из домена Seltox."""
-        return self._get_and_parse("seltox/data/all")
+    def get_seltox_data(self, nanoparticle: Optional[str] = None) -> pd.DataFrame:
+        """
+        Получает все данные из домена Seltox
+        nanoparticle (str, optional): Фильтр по названию наночастицы
+        """
+        return self._get_and_parse("seltox/data/all", params={"nanoparticle": nanoparticle})
 
     def get_seltox_column_stats(self) -> pd.DataFrame:
         """Получает статистику по колонкам для домена Seltox."""
@@ -116,9 +132,12 @@ class ChemXClient:
 
     # --- Synergy ---
 
-    def get_synergy_data(self) -> pd.DataFrame:
-        """Получает все данные из домена Synergy."""
-        return self._get_and_parse("synergy/data/all")
+    def get_synergy_data(self, nanoparticle: Optional[str] = None) -> pd.DataFrame:
+        """
+        Получает все данные из домена Synergy
+        nanoparticle (str, optional): Фильтр по названию наночастицы.
+        """
+        return self._get_and_parse("synergy/data/all", params={"nanoparticle": nanoparticle})
 
     def get_synergy_column_stats(self) -> pd.DataFrame:
         """Получает статистику по колонкам для домена Synergy."""
