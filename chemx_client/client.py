@@ -67,6 +67,10 @@ class ChemXClient:
         """Получает статистику по топовым категориям для домена Cytotox."""
         return self._get_and_parse("cytotox/analytics/top-categories")
 
+    def get_cytotox_ml_data(self) -> pd.DataFrame:
+        """Получает статистику по топовым категориям для домена Cytotox."""
+        return self._get_and_parse("cytotox/data/ml")
+
     # --- Nanomag ---
 
     def get_nanomag_data(self, nanoparticle: Optional[str] = None) -> pd.DataFrame:
@@ -87,6 +91,11 @@ class ChemXClient:
     def get_nanomag_top_categories(self) -> pd.DataFrame:
         """Получает статистику по топовым категориям для домена Nanomag."""
         return self._get_and_parse("nanomag/analytics/top-categories")
+
+
+    def get_nanomag_ml_data(self) -> pd.DataFrame:
+        """Получает статистику по топовым категориям для домена Nanomag."""
+        return self._get_and_parse("nanomag/data/ml")
 
     # --- Nanozymes ---
 
@@ -109,6 +118,10 @@ class ChemXClient:
         """Получает статистику по топовым категориям для домена Nanozymes."""
         return self._get_and_parse("nanozymes/analytics/top-categories")
 
+    def get_nanozymes_ml_data(self) -> pd.DataFrame:
+        """Получает статистику по топовым категориям для домена Nanozymes."""
+        return self._get_and_parse("nanozymes/data/ml")
+
     # --- Seltox ---
 
     def get_seltox_data(self, nanoparticle: Optional[str] = None) -> pd.DataFrame:
@@ -130,6 +143,10 @@ class ChemXClient:
         """Получает статистику по топовым категориям для домена Seltox."""
         return self._get_and_parse("seltox/analytics/top-categories")
 
+    def get_seltox_ml_data(self) -> pd.DataFrame:
+        """Получает статистику по топовым категориям для домена Seltox."""
+        return self._get_and_parse("seltox/data/ml")
+
     # --- Synergy ---
 
     def get_synergy_data(self, nanoparticle: Optional[str] = None) -> pd.DataFrame:
@@ -150,3 +167,7 @@ class ChemXClient:
     def get_synergy_top_categories(self) -> pd.DataFrame:
         """Получает статистику по топовым категориям для домена Synergy."""
         return self._get_and_parse("synergy/analytics/top-categories")
+
+    def get_synergy_ml_data(self) -> pd.DataFrame:
+        """Получает статистику по топовым категориям для домена Synergy."""
+        return self._get_and_parse("synergy/data/ml")
