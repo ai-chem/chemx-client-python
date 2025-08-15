@@ -53,8 +53,6 @@ class ChemXClient:
         data = self._get_request(endpoint=endpoint, params=request_params)
         return pd.DataFrame(data)
 
-    # --- ★★★ Новые универсальные методы ★★★ ---
-
     def get_schema(self) -> Dict[str, List[str]]:
         """
         Получает схему доступных данных: список всех доменов и типов данных.
