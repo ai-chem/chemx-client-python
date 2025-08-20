@@ -54,8 +54,7 @@ except ChemXAPIError as e:
 
 Для подробного пошагового руководства с практическими примерами анализа и визуализации, пожалуйста, откройте наш Jupyter ноутбук:
 
-**[Открыть туториал]([https://colab.research.google.com/drive/1oON2MsEN0Kyy2vAljV2f6V7fdgpaRfqi?usp=sharing](https://colab.research.google.com/drive/14Na_gxIK1MCmiCiY_Klzjf0Nj66iuuuY?usp=sharing))**
-
+**[Открыть туториал](https://colab.research.google.com/drive/14Na_gxIK1MCmiCiY_Klzjf0Nj66iuuuY#scrollTo=pRpe9TYD2w17)**
 ---
 
 ## Справочник по методам (API Reference)
